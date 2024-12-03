@@ -9,7 +9,10 @@ exports.registerUser = async (req, res) => {
       return res.status(400).json({ message: 'All fields are required.' });
     }
 
-    let user = await User.findOne({ email });
+    let user = await User.findOne({
+      $or: [{ email: email }, { phoneNumber: phoneNumber }],
+    });
+
     if (user) {
       return res.status(400).json({ message: 'User already exists.' });
     }
@@ -30,7 +33,7 @@ exports.registerUser = async (req, res) => {
       message: 'User created successfully.',
     });
   } catch (error) {
-    console.log('🚀 ~ exports.registerUser= ~ error:', error);
+    console.error('Error in registerUser:', error.message);
     return res.status(500).json({ message: 'Server Error' });
   }
 };
