@@ -10,7 +10,7 @@ exports.registerUser = async (req, res) => {
       return res.status(400).json({ message: 'All fields are required.' });
     }
 
-    let user = await User.findOne({ email });
+    let user = await User.findOne({ email }, { createdAt: false });
     if (user) {
       return res.status(400).json({ message: 'User already exists.' });
     }
