@@ -46,6 +46,9 @@ app.get('/', (req, res) => {
   res.status(200).send('Server is up and running');
 });
 
+// Routes
+require('./app/routes/user.route')(app);
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 module.exports = app;
