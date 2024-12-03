@@ -46,7 +46,6 @@ exports.loginUser = async (req, res) => {
         .json({ statusCode: 404, message: "Account doesn't exist" });
     }
 
-    // Compare the password
     let isMatch = await UserData.comparePassword(password);
 
     if (!isMatch) {
