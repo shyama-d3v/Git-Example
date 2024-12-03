@@ -1,0 +1,27 @@
+{
+  "name": "git-example",
+  "version": "1.0.0",
+  "description": "Git-Example: A repository showcasing practical Git commands and workflows for version control",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shyama-d3v/Git-Example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shyama-d3v/Git-Example/issues"
+  },
+  "homepage": "https://github.com/shyama-d3v/Git-Example#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.6",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.3"
+  }
+}
