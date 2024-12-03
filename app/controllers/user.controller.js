@@ -39,7 +39,7 @@ exports.registerUser = async (req, res) => {
 exports.loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const UserData = await User.findOne({ email: email });
+    const UserData = await User.findOne({ email: email }, { createdAt: false });
     if (!UserData) {
       return res
         .status(404)
