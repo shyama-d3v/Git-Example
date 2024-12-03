@@ -3,5 +3,4 @@ const userController = require('../controllers/user.controller');
 
 module.exports = (app) => {
   app.post(routeBaseUrl + '/signup', userController.registerUser);
-  app.post(routeBaseUrl + '/login', userController.loginUser);
 };

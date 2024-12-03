@@ -1,7 +1,6 @@
 const User = require('../models/user.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const config = require('../config/auth.config');
 exports.registerUser = async (req, res) => {
   try {
     const { firstName, lastName, email, phoneNumber, password } = req.body;
@@ -14,7 +13,7 @@ exports.registerUser = async (req, res) => {
     if (user) {
       return res.status(400).json({ message: 'User already exists.' });
     }
-    console.log(user);
+
     const hashedPassword = await bcrypt.hash(password, 10);
 
     user = new User({
@@ -35,6 +34,7 @@ exports.registerUser = async (req, res) => {
     return res.status(500).json({ message: 'Server Error' });
   }
 };
+
 
 exports.loginUser = async (req, res) => {
   try {
@@ -72,3 +72,4 @@ exports.loginUser = async (req, res) => {
       .send({ statusCode: 500, message: 'something went wrong' });
   }
 };
+
